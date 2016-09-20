@@ -37,7 +37,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "clean-css": "npm:clean-css@3.4.19",
     "core-js": "npm:core-js@1.2.7",
-    "css": "github:systemjs/plugin-css@0.1.27",
+    "css": "github:systemjs/plugin-css@0.1.26",
     "es6-module-loader": "npm:es6-module-loader@0.17.11",
     "font-awesome": "npm:font-awesome@4.6.3",
     "jquery": "github:components/jquery@3.1.0",
@@ -175,7 +175,7 @@ System.config({
       "when": "npm:when@3.7.7"
     },
     "npm:font-awesome@4.6.3": {
-      "css": "github:systemjs/plugin-css@0.1.27"
+      "css": "github:systemjs/plugin-css@0.1.26"
     },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"

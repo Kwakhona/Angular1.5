@@ -58,7 +58,6 @@ gulp.task('serve:dev', ['lint:fail'] , function () {
     gulp.watch(['./src/modules/**/*','./src/index.js'], ['lint']);
 });
 
-
 gulp.task('serve:dist', ['build'], function () {
     browser_sync.init({
         server: {

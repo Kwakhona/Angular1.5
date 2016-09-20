@@ -20,7 +20,6 @@ import 'toastr/dist/angular-toastr.min.css!';
 
 import bootstrap from 'bootstrap/js/bootstrap';
 import 'bootstrap/css/bootstrap.css!';
-import 'font-awesome/css/font-awesome.css!';
 import 'font-awesome';
 
 import CoreModule from './modules/core/core.module';
