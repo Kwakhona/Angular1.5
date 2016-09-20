@@ -7,11 +7,6 @@ class AppCtrl {
         this.toastr = toastr;
         this.AuthenticationService = AuthenticationService;
     }
-    logout() {
-        this.AuthenticationService.logout();
-        this.toastr.success('Logout Successful');
-        this.$state.go('login');
-    }
 
 }
 
