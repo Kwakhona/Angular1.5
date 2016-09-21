@@ -22,6 +22,7 @@ class ListCtrl {
     }
 
     addItem() {
+        console.log(this.input);
         this.mobxServiceExample.add(this.input);
 
         this.input = '';

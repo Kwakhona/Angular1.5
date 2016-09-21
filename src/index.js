@@ -24,7 +24,7 @@ import 'font-awesome';
 
 import CoreModule from './modules/core/core.module';
 
-console.log(CoreModule);
+
 angular.module('app', [
     CoreModule.name,
     'ngAnimate',
