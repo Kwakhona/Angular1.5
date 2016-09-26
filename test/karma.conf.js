@@ -1,42 +1,70 @@
-module.exports = function(config) {
-    config.set({
-        basePath: '../src',
+// Karma configuration
+// Generated on Thu Sep 22 2016 13:02:57 GMT+0200 (SAST)
+var webpackConfig = require('../webpack.config');
 
-        frameworks: [
-            'jspm', 
-            'jasmine'
+module.exports = function (config) {
+    config.set({
+        basePath: '',
+
+        frameworks: ['jasmine'],
+
+        files: [
+            '../src/index.js',
+            '../node_modules/angular-mocks/angular-mocks.js',
+            '../src/**/*.spec.js'
         ],
 
+        // list of files to exclude
+        exclude: [
+        ],
+
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'modules/**/*.spec.js': ['babel'],
-            'modules/**/!(*.spec).js': ['babel', 'coverage']
+            ['../src/index.js']: ['webpack'],
+            ['../src/**/*.spec.js']: ['webpack']
         },
 
-        babelPreprocessor: { options: { stage:1, sourceMap: 'inline' }},
+        webpack: webpackConfig,
 
-        jspm: {
-            config: 'config.js',
-            loadFiles: ['index.js', 'modules/**/*.js'],
-            serveFiles: [ 'modules/**/*.+(js|html|css)'],
-            stripExtension: true
-        },
-
-        reporters: ['dots', 'coverage'],
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['progress', 'coverage'],
 
         coverageReporter: {
-            instrumenters: {isparta: require('isparta')},
-            instrumenter: {'modules/**/*.js': 'isparta'},
-            dir: '../test/coverage/',
             reporters: [
-                {type: 'html'},
-                {type: 'json'},
-                {type: 'lcov'},
-                {type: 'text-summary'}
+                { type: 'lcov', dir: '../coverage', 'subdir': '.' },
+                { type: 'json', dir: '../coverage', 'subdir': '.' },
+                { type: 'text-summary' }
             ]
         },
 
+        port: 9876,
+
+        // enable / disable colors in the output (reporters and logs)
+        color: true,
+
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
+
+
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: false,
+
+
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
+
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
         singleRun: true,
-        browserNoActivityTimeout: 75000
+
+        // Concurrency level
+        // how many browser should be started simultaneous
+        concurrency: Infinity
     })
 }

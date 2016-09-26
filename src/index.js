@@ -1,8 +1,12 @@
-import angular from 'angular';
+import './index.scss';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'angular-toastr/dist/angular-toastr.css';
 
 
-import $ from 'jquery';
 import _ from 'underscore';
+import bootstrap from 'bootstrap';
+import angular from 'angular';
 
 
 import ngAnimate from 'angular-animate';
@@ -10,23 +14,17 @@ import ngAria from 'angular-aria';
 import ngCookies from 'angular-cookies';
 import ngSanitize from 'angular-sanitize';
 import ngTouch from 'angular-touch';
-
 import uiBootstrap from 'angular-ui-bootstrap';
 import uiRouter from 'angular-ui-router';
+import toastr from 'angular-toastr';
 import rx from 'rx-angular';
-import toastr from 'toastr';
-import 'toastr/dist/angular-toastr.min.css!';
-
-
-import bootstrap from 'bootstrap/js/bootstrap';
-import 'bootstrap/css/bootstrap.css!';
-import 'font-awesome';
 
 import CoreModule from './modules/core/core.module';
-
+import ProjectMOdule from './project/project.module';
 
 angular.module('app', [
     CoreModule.name,
+    ProjectModule.name,
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -38,6 +36,7 @@ angular.module('app', [
     'toastr'
 ])
 .run(($rootScope, AuthenticationService, $state) => {
+    'ngInject';
     // force login
     $rootScope.$on('$locationChangeStart', (state) => {
         if(!AuthenticationService.isLoggedIn()){
@@ -70,7 +69,12 @@ angular.module('app', [
     $stateProvider
         .state('login', {
             url: '/login',
-            template: '<login></login>'
+            template: '<login resolve="$resolve"></login>',
+            resolve: {
+                test: function() {
+                    return 'Something Else';
+                }
+            }
         })
         .state('state-a', {
             url: '/a',
@@ -79,6 +83,18 @@ angular.module('app', [
         .state('state-b', {
             url: '/b/:name',
             template: '<app></app>'
+        })
+        .state('project:list', {
+            url: '/projects',
+            template: '<project-list></project-list>'
+        })
+        .state('project:update', {
+            url: '/projects/update/:id',
+            template: '<project-crud></project-crud>'
+        })
+        .state('project:create', {
+            url: '/projects/create',
+            template: '<project-crud></project-crud>'
         });
 });
 
