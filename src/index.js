@@ -19,7 +19,7 @@ import uiRouter from 'angular-ui-router';
 import toastr from 'angular-toastr';
 import rx from 'rx-angular';
 
-import CoreModule from './modules/core/core.module';
+import CoreModule from './core/core.module';
 import ProjectMOdule from './project/project.module';
 
 angular.module('app', [
