@@ -20,7 +20,7 @@ import toastr from 'angular-toastr';
 import rx from 'rx-angular';
 
 import CoreModule from './core/core.module';
-import ProjectMOdule from './project/project.module';
+// import ProjectModule from './project/project.module';
 
 angular.module('app', [
     CoreModule.name,
