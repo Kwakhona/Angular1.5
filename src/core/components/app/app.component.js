@@ -1,6 +1,6 @@
 import AppTemplate from './app.template.html';
 import AppCtrl from './app.ctrl';
-import './app.style.css!';
+import './app.style.scss';
 
 export default {
     template: AppTemplate,
