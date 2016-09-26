@@ -1,11 +1,7 @@
-import { observable, computed } from 'mobx';
+import { observable } from 'mobx';
 
 class MobxServiceExample {
-    @observable items = [];
-
-    @computed get length() {
-        return this.items.length;
-    };
+    items = observable([]);
 
     add(value) {
         this.items.push({value: value});
@@ -14,8 +10,6 @@ class MobxServiceExample {
     remove(index) {
         this.items.splice(index > 0 ? index: 0, 1);
     };
-
-    
 }
 
 export default MobxServiceExample;
