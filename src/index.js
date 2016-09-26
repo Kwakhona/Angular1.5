@@ -24,7 +24,7 @@ import CoreModule from './core/core.module';
 
 angular.module('app', [
     CoreModule.name,
-    ProjectModule.name,
+    // ProjectModule.name,
     'ngAnimate',
     'ngAria',
     'ngCookies',
