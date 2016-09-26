@@ -1,4 +1,4 @@
-import LoginTemplate from './login.template.html!text';
+import LoginTemplate from './login.template.html';
 import LoginCtrl from './login.ctrl';
 
 export default {
